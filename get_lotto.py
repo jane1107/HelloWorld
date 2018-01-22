@@ -11,5 +11,21 @@ for i in range(1,7):
   drw_numbers.append(res['drwtNo'+str(i)])
 bonus_number = res['bnusNo']
 
-print("이번 주 로또 번호는 ", drw_numbers)
-print("보너스 번호는 ", bonus_number)
+match_numbers = set(drw_numbers) & set(my_numbers)
+match_count = len(match_numbers)
+
+#print(match_numbers)
+#print(match_count)
+
+if match_count == 6:
+  print("1등!")
+elif match_count == 5:
+  if bonus_number in my_numbers:
+    print("2등!")
+  else: print("3등!")
+elif match_count == 4:
+  print("4등!")
+elif match_count == 3:
+  print("5등!")
+else:
+  print("꽝")
